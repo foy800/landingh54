@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>webexpert24 — Маркетинговое агентство</title>
+<meta name="description" content="SEO, Яндекс Директ, сайты, email-аутрич, поиск ЛПР, рассылки и AI-продавцы. Получите маркетинговую стратегию бесплатно." />
+
+
+
+<style>
+:root{
+  --bg:#f7f9fc;--surface:#fff;--text:#0a2540;--muted:#52657a;--line:#e5eaf0;
+  --primary:#635bff;--primary-dark:#5046e5;--soft:#f2f1ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;overflow-x:hidden;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+button,input,textarea{font:inherit}
+main,section,header,footer{max-width:100%;overflow-x:hidden}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.section{padding:88px 0}
+.section-kicker{color:var(--primary);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.section-title{margin:0;max-width:900px;font-size:clamp(38px,4.6vw,62px);line-height:1;letter-spacing:-.05em;font-weight:700}
+.section-copy{margin:20px 0 0;max-width:760px;color:var(--muted);font-size:18px;line-height:1.6}
+
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:11px;white-space:nowrap}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#635bff,#4aa3ff);position:relative}
+.brand-mark:after{content:"";position:absolute;inset:7px;border:2px solid rgba(255,255,255,.9);border-radius:7px;transform:rotate(10deg)}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-text strong{font-size:17px;font-weight:750;letter-spacing:-.03em}
+.brand-text span{margin-top:4px;font-size:10px;text-transform:uppercase;letter-spacing:.11em;color:#7a8798;font-weight:700}
+.menu{margin-left:auto;display:flex;gap:26px}
+.menu a{font-size:14px;color:#425466}
+.btn{min-height:48px;padding:0 19px;border:0;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:650;cursor:pointer}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark)}
+.btn-secondary{background:#fff;color:var(--text);border:1px solid var(--line)}
+
+.hero{padding:84px 0 72px;background:linear-gradient(180deg,#fff,#f7faff)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid #dfe4ef;border-radius:999px;color:#425466;font-size:12px;font-weight:600;margin-bottom:24px;background:#fff}
+.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--primary)}
+.hero h1{margin:0;max-width:830px;font-size:clamp(50px,6vw,86px);line-height:.96;letter-spacing:-.06em;font-weight:750}
+.blue{color:var(--primary)}
+.hero-copy{margin-top:26px;max-width:720px;color:var(--muted);font-size:19px;line-height:1.6}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-tags{margin-top:38px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 16px}
+.hero-tag{font-size:13px;color:#627187}
+
+.hero-proof,.service-card,.case,.founder-card,.form-card,.step,.strategy-item,.cases-cta{background:#fff;border:1px solid var(--line)}
+.hero-proof{border-radius:18px;padding:26px}
+.proof-top{display:flex;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.proof-title{margin:0;font-size:14px;font-weight:700}
+.proof-caption{margin:5px 0 0;font-size:12px;color:#8a97a8}
+.status{padding:6px 9px;border-radius:999px;background:#edf9f4;color:#067a55;font-size:11px;font-weight:700}
+.hero-case{padding:22px 0;border-bottom:1px solid var(--line)}
+.hero-case:last-child{border-bottom:0}
+.hero-case-meta{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#8a97a8;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+.hero-metric{margin-top:12px;font-size:46px;line-height:1;font-weight:750;letter-spacing:-.05em}
+.hero-case p{margin:9px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+
+.strategy-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:34px}
+.strategy-item{border-radius:14px;padding:20px}
+.strategy-item strong{display:block;font-size:15px;margin-bottom:8px}
+.strategy-item span{display:block;color:var(--muted);font-size:13px;line-height:1.5}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.service-card{border-radius:16px;padding:24px}
+.service-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:var(--soft);color:var(--primary);margin-bottom:16px}
+.service-card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em}
+.service-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+
+.cases-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end;padding-bottom:32px;border-bottom:1px solid var(--line);margin-bottom:30px}
+.cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.case{border-radius:18px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;min-height:420px}
+.case.featured{grid-column:span 2;display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;min-height:auto}
+.case-side{background:#f6f5ff;border-radius:14px;padding:26px}
+.case-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.case-num{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8795a7}
+.case-site{font-size:11px;padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.case-metric{margin-top:42px;font-size:clamp(42px,4.8vw,72px);line-height:.94;letter-spacing:-.055em;font-weight:750}
+.case-title{margin:16px 0 0;font-size:23px;line-height:1.22;letter-spacing:-.03em}
+.label{margin-bottom:10px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#8a97a8}
+.list{display:grid;gap:8px}
+.item{position:relative;padding-left:14px;color:#53657a;font-size:14px;line-height:1.5}
+.item:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--primary)}
+.case-bottom{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.result{color:#425466;font-size:14px;line-height:1.6}
+.result strong{display:block;margin-bottom:6px;color:var(--text);font-size:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+.stat{padding:16px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.stat strong{display:block;font-size:27px;line-height:1;margin-bottom:6px}
+.stat span{font-size:12px;color:#697386}
+
+.cases-cta{margin-top:18px;padding:24px;border-radius:16px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center}
+.cases-cta h3{margin:0 0 7px;font-size:23px}
+.cases-cta p{margin:0;color:var(--muted);line-height:1.55}
+.case-mini-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.case-mini-form .full{grid-column:span 2}
+
+.founder-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center}
+.founder-photo{border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.founder-photo img{width:100%;height:auto;object-fit:cover}
+.founder-card{border-radius:18px;padding:32px}
+.founder-name{margin:0;font-size:40px;line-height:1;letter-spacing:-.05em}
+.founder-role{margin:10px 0 22px;color:var(--primary);font-size:15px;font-weight:650}
+.founder-card p{margin:0 0 14px;color:var(--muted);font-size:15px;line-height:1.72}
+.founder-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.fact{background:#fafbfc;border:1px solid var(--line);border-radius:12px;padding:16px}
+.fact strong{display:block;margin-bottom:5px;font-size:14px}
+.fact span{display:block;color:var(--muted);font-size:12px;line-height:1.5}
+
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.step{border-radius:16px;padding:22px;position:relative}
+.step-num{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;background:var(--soft);color:var(--primary);font-size:12px;font-weight:700;margin-bottom:16px}
+.step-icon{position:absolute;top:20px;right:20px;width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:#f8f8ff;color:var(--primary)}
+.step h3{margin:0 0 9px;font-size:19px}
+.step p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+
+.form-wrap{padding:92px 0 110px;background:#f8faff}
+.form-shell{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:start;padding:32px;background:#fff;border:1px solid var(--line);border-radius:20px}
+.benefits{display:grid;gap:8px;margin-top:26px}
+.benefit{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.benefit:last-child{border-bottom:0}
+.benefit-icon{width:28px;height:28px;flex:0 0 28px;border-radius:8px;display:grid;place-items:center;background:var(--soft);color:var(--primary);font-size:11px;font-weight:700}
+.benefit strong{display:block;margin-bottom:3px;font-size:14px}
+.benefit span{display:block;color:var(--muted);font-size:12px;line-height:1.5}
+.form-card{border-radius:16px;padding:26px}
+.form-title{margin:0 0 7px;font-size:24px}
+.form-sub{margin:0 0 20px;color:var(--muted);font-size:14px;line-height:1.5}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:grid;gap:7px}
+.field.full{grid-column:span 2}
+.field label{font-size:12px;font-weight:650;color:#425466}
+.input,.textarea{width:100%;border:1px solid #d8dee8;border-radius:9px;background:#fff;color:var(--text);outline:none}
+.input{min-height:48px;padding:0 13px}
+.textarea{min-height:108px;padding:13px;resize:vertical}
+.input:focus,.textarea:focus{border-color:#8b86ff}
+.radio-group{display:flex;flex-wrap:wrap;gap:8px}
+.radio{position:relative}
+.radio input{position:absolute;opacity:0;pointer-events:none}
+.radio span{min-height:40px;padding:0 13px;display:inline-flex;align-items:center;border:1px solid #d8dee8;border-radius:999px;background:#fff;font-size:13px;color:#425466}
+.radio input:checked + span{border-color:#918cff;background:#f3f2ff;color:#5149df;font-weight:650}
+.form-note{margin-top:9px;color:#8898aa;font-size:11px;line-height:1.45}
+
+.legal-footer{padding:44px 0 26px;border-top:1px solid var(--line);background:#fff}
+.footer-main{display:grid;grid-template-columns:1.5fr 1fr 1.2fr .8fr;gap:28px}
+.footer-brand p{margin:14px 0 0;max-width:360px;color:var(--muted);font-size:13px;line-height:1.55}
+.footer-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#8a97a8;font-weight:700;margin-bottom:12px}
+.footer-col{display:flex;flex-direction:column;gap:8px;font-size:13px;color:#425466}
+.footer-col a:hover{color:var(--primary)}
+.footer-bottom{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:#8795a7;font-size:12px}
+
+.privacy-section{padding:56px 0 90px;background:#f8fafc}
+.privacy-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.privacy-title{margin:0;font-size:34px;letter-spacing:-.035em}
+.privacy-text{margin-top:24px;columns:2;column-gap:44px}
+.privacy-text p{break-inside:avoid;margin:0 0 20px;color:#52657a;font-size:13px;line-height:1.7}
+.privacy-text strong{color:var(--text)}
+.privacy-text a{color:var(--primary)}
+
+@media(max-width:1050px){
+  .hero-grid,.founder-grid,.form-shell{grid-template-columns:1fr}
+  .strategy-strip{grid-template-columns:repeat(2,1fr)}
+  .services-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
+  .cases-head{grid-template-columns:1fr;gap:18px}
+  .cases-grid{grid-template-columns:1fr}
+  .case.featured{grid-column:auto;grid-template-columns:1fr}
+  .cases-cta{grid-template-columns:1fr}
+  .footer-main{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .wrap{width:min(100% - 28px,1180px)}
+  .nav{height:68px}.menu,.nav>.btn{display:none}
+  .brand-text span{display:none}
+  .hero{padding:52px 0 42px}
+  .hero h1{font-size:46px}
+  .hero-copy{font-size:17px}
+  .hero-actions{flex-direction:column}.btn{width:100%}
+  .section{padding:68px 0}
+  .strategy-strip,.services-grid,.process-grid,.stats,.founder-facts,.form-grid,.case-bottom,.case-mini-form,.footer-main{grid-template-columns:1fr}
+  .field.full,.case-mini-form .full{grid-column:auto}
+  .case,.hero-proof,.founder-card,.form-shell,.form-card,.privacy-card{padding:20px}
+  .case-top{flex-direction:column}
+  .privacy-text{columns:1}
+  .footer-bottom{flex-direction:column}
+}
+</style>
+
+
+
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div class="brand-text">
+        <strong>webexpert24</strong>
+        <span>Маркетинговое агентство</span>
+      </div>
+    </div>
+    <nav class="menu" aria-label="Навигация">
+      <a href="#services">Услуги</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#founder">Основатель</a>
+      <a href="#strategy">Стратегия</a>
+    </nav>
+    <a class="btn btn-secondary" href="#strategy">Получить стратегию</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">SEO, реклама, сайты и прямые продажи</div>
+        <h1>Приводим клиентов из поиска, рекламы и <span class="blue">прямых продаж</span></h1>
+        <p class="hero-copy">
+          Запускаем SEO, Яндекс Директ, email-аутрич, рассылки в мессенджерах и сайты под заявки.
+          Сначала считаем спрос и экономику. Потом выбираем каналы, которые стоит запускать.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#strategy">Получить маркетинговую стратегию бесплатно</a>
+          <a class="btn btn-secondary" href="#cases">Посмотреть кейсы</a>
+        </div>
+        <div class="hero-tags">
+          <span class="hero-tag">Email-аутрич</span>
+          <span class="hero-tag">Поиск ЛПР</span>
+          <span class="hero-tag">SEO</span>
+          <span class="hero-tag">Яндекс Директ</span>
+          <span class="hero-tag">Сайты</span>
+          <span class="hero-tag">WhatsApp</span>
+          <span class="hero-tag">Telegram</span>
+          <span class="hero-tag">MAX</span>
+          <span class="hero-tag">AI-продавцы</span>
+        </div>
+      </div>
+
+      <aside class="hero-proof">
+        <div class="proof-top">
+          <div>
+            <p class="proof-title">Последние результаты</p>
+            <p class="proof-caption">Цифры из действующих проектов</p>
+          </div>
+          <div class="status">Проекты в работе</div>
+        </div>
+
+        <div class="hero-case">
+          <div class="hero-case-meta">
+            <span>Банкротство физических лиц</span>
+            <span>Кейс 01</span>
+          </div>
+          <div class="hero-metric"><span class="blue">988</span> заявок</div>
+          <p>347 ₽ за целевую заявку. Ежедневно — 10–14 лидов.</p>
+        </div>
+
+        <div class="hero-case">
+          <div class="hero-case-meta">
+            <span>Земля и строительство</span>
+            <span>Кейс 02</span>
+          </div>
+          <div class="hero-metric"><span class="blue">45</span> заявок</div>
+          <p>45 заявок за 30 дней и 3 договора.</p>
+        </div>
+
+        <div class="hero-case">
+          <div class="hero-case-meta">
+            <span>B2B / мебель и оборудование</span>
+            <span>Кейс 03</span>
+          </div>
+          <div class="hero-metric"><span class="blue">60+</span> заявок</div>
+          <p>13 договоров за месяц после запуска outreach и AI-продавца.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-kicker">Бесплатная стратегия</div>
+    <h2 class="section-title">Разберём рынок и покажем, где дешевле брать клиентов.</h2>
+    <p class="section-copy">
+      За один разбор вы получите основу для рекламного плана: что продавать, кому, через какие каналы и по какой цене можно привлекать клиента.
+    </p>
+
+    <div class="strategy-strip">
+      <div class="strategy-item">
+        <strong>Анализ рынка</strong>
+        <span>Спрос, конкуренты, цены и рекламные каналы в вашей нише.</span>
+      </div>
+      <div class="strategy-item">
+        <strong>Сильный оффер</strong>
+        <span>Формулировка предложения для сайта, рекламы и рассылок.</span>
+      </div>
+      <div class="strategy-item">
+        <strong>Каналы продаж</strong>
+        <span>SEO, Яндекс Директ, сайт, outreach, мессенджеры — только то, что стоит тестировать.</span>
+      </div>
+      <div class="strategy-item">
+        <strong>Стоимость клиента</strong>
+        <span>Ориентир по цене заявки и клиента с учетом ниши и среднего чека.</span>
+      </div>
+      <div class="strategy-item">
+        <strong>План запуска</strong>
+        <span>Что делать первым, что подключать позже и какие цифры контролировать.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-kicker">Услуги</div>
+    <h2 class="section-title">Каналы, которые мы запускаем и связываем с продажами.</h2>
+    <p class="section-copy">
+      Набор инструментов зависит от задачи. Где-то хватает Яндекс Директа. Где-то нужен сайт и SEO. В B2B быстрее срабатывает прямой выход на ЛПР.
+    </p>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z" stroke="currentColor" stroke-width="1.8"/><path d="m5.5 7 6.5 5 6.5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Email-аутрич и поиск ЛПР</h3>
+        <p>Находим компании, ищем руководителей и сотрудников, которые принимают решение, готовим персональные письма и запускаем серии касаний.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M11 8v6M8 11h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>SEO</h3>
+        <p>Собираем спрос, создаём коммерческие страницы, улучшаем структуру сайта и растим позиции в Яндексе.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 17 10 12l3 3 6-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 7h1.5V8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Яндекс Директ</h3>
+        <p>Запускаем рекламу по горячим запросам, считаем стоимость заявки и клиента, отключаем то, что не даёт продаж.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9h17" stroke="currentColor" stroke-width="1.8"/><circle cx="6.5" cy="7" r=".9" fill="currentColor"/><circle cx="9.5" cy="7" r=".9" fill="currentColor"/></svg>
+        </div>
+        <h3>Разработка сайтов</h3>
+        <p>Делаем сайты под рекламу, SEO и заявки: структура, оффер, формы, аналитика и мобильная версия.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="7" y="7" width="10" height="10" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <h3>AI-продавец</h3>
+        <p>ИИ отвечает на входящие обращения, задаёт вопросы, собирает данные и передаёт менеджеру квалифицированный запрос.</p>
+      </article>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 18.5 5 20l.7-3.1A7 7 0 1 1 19 12a7 7 0 0 1-12 6.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 11.5h7M8.5 14h4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>WhatsApp, Telegram и MAX</h3>
+        <p>Запускаем рассылки и цепочки сообщений для повторных продаж, возврата старой базы и дожима заявок.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cases">
+  <div class="wrap">
+    <div class="cases-head">
+      <div>
+        <div class="section-kicker">Кейсы</div>
+        <h2 class="section-title">Заявки, договоры и стоимость лида.</h2>
+      </div>
+      <p class="section-copy">
+        В кейсах показываем то, что влияет на выручку: сколько получили обращений, сколько из них дошли до договора и сколько стоило привлечение.
+      </p>
+    </div>
+
+    <div class="cases-grid">
+      <article class="case featured">
+        <div class="case-side">
+          <div class="case-top">
+            <div class="case-num">Кейс 01 / Банкротство физических лиц</div>
+            <a class="case-site" href="https://borisovich-partners.ru/" target="_blank" rel="noopener">borisovich-partners.ru ↗</a>
+          </div>
+          <div class="case-metric"><span class="blue">988</span> заявок</div>
+          <h3 class="case-title">Привлечение клиентов на банкротство физических лиц</h3>
+        </div>
+
+        <div>
+          <div class="label">Что сделали</div>
+          <div class="list">
+            <div class="item">Внедрили ИИ-продавца</div>
+            <div class="item">Настроили Яндекс Директ</div>
+            <div class="item">Запустили SEO-продвижение</div>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>347 ₽</strong>
+              <span>целевая заявка</span>
+            </div>
+            <div class="stat">
+              <strong>10–14</strong>
+              <span>лидов в день</span>
+            </div>
+            <div class="stat">
+              <strong>988</strong>
+              <span>заявок получено</span>
+            </div>
+          </div>
+
+          <div class="case-bottom">
+            <div>
+              <div class="label">Результат</div>
+              <div class="result">
+                <strong>Постоянный поток целевых обращений</strong>
+                Клиенты приходят из рекламы и поиска каждый день. ИИ-продавец помогает быстро обработать входящий поток.
+              </div>
+            </div>
+            <div>
+              <div class="label">Система</div>
+              <div class="result">
+                Сайт, SEO, Яндекс Директ и первичная квалификация заявок работают в одной воронке.
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <div class="case-top">
+            <div class="case-num">Кейс 02 / Земля и строительство</div>
+            <a class="case-site" href="https://zagorskie-usadby.ru/" target="_blank" rel="noopener">zagorskie-usadby.ru ↗</a>
+          </div>
+          <div class="case-metric"><span class="blue">45</span> заявок</div>
+          <h3 class="case-title">Продажа земельных участков и строительство в Московской области</h3>
+        </div>
+
+        <div class="case-bottom">
+          <div>
+            <div class="label">Что сделали</div>
+            <div class="list">
+              <div class="item">Создали сайт</div>
+              <div class="item">Запустили продвижение в Яндексе</div>
+              <div class="item">Настроили учёт клиентов</div>
+            </div>
+          </div>
+          <div>
+            <div class="label">Результат</div>
+            <div class="result">
+              <strong>3 договора за 30 дней</strong>
+              45 заявок за месяц. После запуска компания получает обращения на участки и строительство каждый месяц.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <div class="case-top">
+            <div class="case-num">Кейс 03 / Мебель и оборудование</div>
+            <a class="case-site" href="https://n-72.ru/" target="_blank" rel="noopener">n-72.ru ↗</a>
+          </div>
+          <div class="case-metric"><span class="blue">60+</span> заявок</div>
+          <h3 class="case-title">B2B-продажи мебели и оборудования</h3>
+        </div>
+
+        <div class="case-bottom">
+          <div>
+            <div class="label">Что сделали</div>
+            <div class="list">
+              <div class="item">Запустили B2B email-аутрич</div>
+              <div class="item">Настроили серии рассылок</div>
+              <div class="item">Подключили AI-продавца</div>
+            </div>
+          </div>
+          <div>
+            <div class="label">Результат</div>
+            <div class="result">
+              <strong>13 договоров за месяц</strong>
+              Компания получила понятный процесс: поиск клиента, сообщение, ответ, квалификация и передача менеджеру.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <div class="case-top">
+            <div class="case-num">Кейс 04 / Интернет-провайдер</div>
+            <a class="case-site" href="https://intercom.pro/" target="_blank" rel="noopener">intercom.pro ↗</a>
+          </div>
+          <div class="case-metric">Привлечение <span class="blue">лидов</span></div>
+          <h3 class="case-title">Продвижение и продажи для интернет-провайдера</h3>
+        </div>
+
+        <div class="case-bottom">
+          <div>
+            <div class="label">Что сделали</div>
+            <div class="list">
+              <div class="item">Запустили продвижение в Яндексе</div>
+              <div class="item">Работали с рекламой в Instagram</div>
+              <div class="item">Настроили поиск и привлечение новых лидов</div>
+            </div>
+          </div>
+          <div>
+            <div class="label">Результат</div>
+            <div class="result">
+              Компания получает обращения из нескольких каналов и не зависит от одного источника трафика.
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="cases-cta">
+      <div>
+        <h3>Хотите посмотреть больше кейсов?</h3>
+        <p>Оставьте контакт. Пришлём проекты по вашей или близкой нише.</p>
+      </div>
+
+      <div class="case-mini-form">
+        <input class="input" type="text" placeholder="Имя" />
+        <input class="input" type="tel" placeholder="+7 (999) 999-99-99" />
+        <div class="radio-group full">
+          <label class="radio"><input type="radio" name="case_messenger" checked><span>WhatsApp</span></label>
+          <label class="radio"><input type="radio" name="case_messenger"><span>Telegram</span></label>
+          <label class="radio"><input type="radio" name="case_messenger"><span>MAX</span></label>
+        </div>
+        <button class="btn btn-primary full" type="button">Получить кейсы</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="founder">
+  <div class="wrap">
+    <div class="section-kicker">Основатель</div>
+
+    <div class="founder-grid">
+      <div class="founder-photo">
+        <img src="webexpert24-founder.webp" alt="Павел Проценко" />
+      </div>
+
+      <div class="founder-card">
+        <h2 class="founder-name">Павел Проценко</h2>
+        <div class="founder-role">Основатель webexpert24</div>
+
+        <p>
+          Более 15 лет занимаюсь маркетингом и продвижением компаний. Работал с федеральными брендами и малым бизнесом.
+        </p>
+
+        <p>
+          Основал IT-проекты <strong>Rielt Radar</strong> — фабрику контент-маркетинга для риелторов,
+          и <strong>ChatGlobal</strong> — платформу доступа к международным ИИ-решениям.
+        </p>
+
+        <p>
+          Веду Telegram-канал <strong>«Кладовая Маркетолога»</strong>.
+          Автор книги <strong>«Booster: Рецепты эффективного маркетинга»</strong>, издательство «Эксмо».
+        </p>
+
+        <p>
+          В проектах считаю четыре показателя: сколько получили заявок, сколько из них целевые,
+          сколько стоил клиент и сколько денег принесла реклама.
+        </p>
+
+        <div class="founder-facts">
+          <div class="fact">
+            <strong>15+ лет в маркетинге</strong>
+            <span>Продвижение федеральных брендов и малого бизнеса.</span>
+          </div>
+          <div class="fact">
+            <strong>Rielt Radar</strong>
+            <span>Фабрика контент-маркетинга для риелторов.</span>
+          </div>
+          <div class="fact">
+            <strong>ChatGlobal</strong>
+            <span>Платформа доступа к международным ИИ-решениям.</span>
+          </div>
+          <div class="fact">
+            <strong>Автор и практик</strong>
+            <span>Telegram-канал «Кладовая Маркетолога» и книга издательства «Эксмо».</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-kicker">Как работаем</div>
+    <h2 class="section-title">Сначала считаем. Потом запускаем.</h2>
+    <p class="section-copy">
+      До старта нужно понять, кто покупает, сколько стоит продажа и где этого клиента проще найти.
+    </p>
+
+    <div class="process-grid">
+      <article class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6.5 15V9m5 6V6m5 9v-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>Смотрим рынок</h3>
+        <p>Изучаем конкурентов, поисковый спрос, рекламу и предложения компаний в вашей нише.</p>
+      </article>
+      <article class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 8.5 12 4l8 4.5-8 4.5L4 8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 8.5V16l8 4 8-4V8.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><h3>Разбираем продукт</h3>
+        <p>Цена, средний чек, география, цикл сделки, тип клиента и текущие продажи.</p>
+      </article>
+      <article class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 6h14M5 12h10M5 18h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="12" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg></div><h3>Выбираем каналы</h3>
+        <p>Определяем, где быстрее получить клиента: поиск, реклама, сайт, outreach или мессенджеры.</p>
+      </article>
+      <article class="step">
+        <div class="step-num">04</div>
+        <div class="step-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 18 10 12l3 3 6-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 7h1.5V8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><h3>Запускаем и считаем</h3>
+        <p>Смотрим заявки, продажи и стоимость клиента. Рабочие каналы усиливаем, остальные меняем или отключаем.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="form-wrap" id="strategy">
+  <div class="wrap">
+    <div class="form-shell">
+      <div>
+        <div class="section-kicker">Бесплатная маркетинговая стратегия</div>
+        <h2 class="section-title">Получите план привлечения клиентов для вашего бизнеса.</h2>
+        <p class="section-copy">
+          Оставьте заявку. Мы разберём ваш рынок и покажем, какие каналы стоит запускать в первую очередь.
+        </p>
+
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-icon">01</div>
+            <div><strong>Анализ рынка</strong><span>Спрос, конкуренты и точки роста.</span></div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">02</div>
+            <div><strong>Разработка предложения</strong><span>Оффер для сайта, рекламы и продаж.</span></div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">03</div>
+            <div><strong>Выбор каналов продаж</strong><span>SEO, Яндекс Директ, сайт, outreach или мессенджеры.</span></div>
+          </div>
+          <div class="benefit">
+            <div class="benefit-icon">04</div>
+            <div><strong>Стоимость привлечения клиента</strong><span>Ориентир по цене заявки и клиента.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3 class="form-title">Оставьте заявку</h3>
+        <p class="form-sub">Выберите удобный способ связи: WhatsApp, Telegram или MAX.</p>
+
+        <form>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Имя</label>
+              <input class="input" id="name" type="text" placeholder="Ваше имя" />
+            </div>
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input class="input" id="phone" type="tel" placeholder="+7 (999) 999-99-99" />
+            </div>
+            <div class="field full">
+              <label>Как с вами связаться</label>
+              <div class="radio-group">
+                <label class="radio"><input type="radio" name="messenger" checked><span>WhatsApp</span></label>
+                <label class="radio"><input type="radio" name="messenger"><span>Telegram</span></label>
+                <label class="radio"><input type="radio" name="messenger"><span>MAX</span></label>
+              </div>
+            </div>
+            <div class="field full">
+              <label for="site">Сайт или ниша</label>
+              <input class="input" id="site" type="text" placeholder="Например: юридические услуги / site.ru" />
+            </div>
+            <div class="field full">
+              <label for="task">Коротко о задаче</label>
+              <textarea class="textarea" id="task" placeholder="Какие клиенты вам нужны и что уже пробовали?"></textarea>
+            </div>
+            <div class="field full">
+              <button class="btn btn-primary" type="button">Получить маркетинговую стратегию бесплатно</button>
+              <div class="form-note">Нажимая на кнопку, вы соглашаетесь на обработку контактных данных.</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<footer class="legal-footer">
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-text">
+            <strong>webexpert24</strong>
+            <span>Маркетинговое агентство</span>
+          </div>
+        </div>
+        <p>SEO, Яндекс Директ, сайты, email-аутрич, рассылки и AI-инструменты для продаж.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-label">Контакты</div>
+        <a href="tel:+79992331873">+7 999 233-18-73</a>
+        <a href="mailto:info@webexpert24.ru">info@webexpert24.ru</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-label">Реквизиты</div>
+        <div>ИП Проценко Наталья Евгеньевна</div>
+        <div>ИНН 760208470556</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-label">Документы</div>
+        <a href="#privacy">Политика конфиденциальности</a>
+        <a href="#strategy">Получить стратегию</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 webexpert24</div>
+      <div>Маркетинговое агентство</div>
+    </div>
+  </div>
+</footer>
+
+<section class="privacy-section" id="privacy">
+  <div class="wrap">
+    <div class="privacy-card">
+      <div class="section-kicker">Документы</div>
+      <h2 class="privacy-title">Политика конфиденциальности</h2>
+      <div class="privacy-text">
+        <p><strong>1. Общие положения</strong><br>Настоящая политика определяет порядок обработки и защиты персональных данных пользователей сайта webexpert24. Оператор персональных данных — ИП Проценко Наталья Евгеньевна, ИНН 760208470556.</p>
+        <p><strong>2. Какие данные обрабатываются</strong><br>При заполнении форм пользователь может передать имя, номер телефона, email, адрес сайта, сведения о компании и другую информацию, которую указывает самостоятельно.</p>
+        <p><strong>3. Цели обработки</strong><br>Данные используются для связи с пользователем, подготовки маркетинговой стратегии, отправки кейсов и материалов, консультации по услугам и подготовки коммерческого предложения.</p>
+        <p><strong>4. Согласие на обработку</strong><br>Отправляя форму, пользователь соглашается на обработку указанных данных в объёме, необходимом для ответа на обращение и оказания запрошенных услуг.</p>
+        <p><strong>5. Передача третьим лицам</strong><br>Данные не передаются третьим лицам без законного основания, кроме сервисов, необходимых для работы сайта, хранения заявок, отправки сообщений и выполнения требований законодательства.</p>
+        <p><strong>6. Срок хранения</strong><br>Данные хранятся в течение срока, необходимого для обработки обращения, исполнения обязательств и соблюдения требований законодательства, либо до отзыва согласия, если иное не предусмотрено законом.</p>
+        <p><strong>7. Защита данных</strong><br>Оператор принимает организационные и технические меры для защиты персональных данных от неправомерного доступа, изменения, раскрытия и уничтожения.</p>
+        <p><strong>8. Отзыв согласия</strong><br>Пользователь может запросить уточнение или удаление своих данных и отозвать согласие, написав на <a href="mailto:info@webexpert24.ru">info@webexpert24.ru</a>.</p>
+        <p><strong>9. Контакты оператора</strong><br>ИП Проценко Наталья Евгеньевна<br>ИНН 760208470556<br>Телефон: <a href="tel:+79992331873">+7 999 233-18-73</a><br>Email: <a href="mailto:info@webexpert24.ru">info@webexpert24.ru</a></p>
+        <p><strong>10. Изменение политики</strong><br>Оператор вправе обновлять политику. Актуальная версия публикуется на сайте webexpert24.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
